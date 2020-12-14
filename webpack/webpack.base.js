@@ -72,6 +72,7 @@ module.exports = {
   ],
   optimization: {
     // 代码分割
+    // runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
       minSize: 30000,

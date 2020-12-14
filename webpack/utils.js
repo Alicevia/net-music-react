@@ -6,11 +6,11 @@ const { resolve } = require('path')
 exports.generateFileName = (pages) => {
   let filenameAry = []
   let filePath = []
-  let reg = /(.*\/)*([^.]+).(js|ts|jsx)$/ig
+  let reg = /(.*\/)*([^.]+)\.(js|ts|jsx)$/ig
   glob.sync(pages).forEach(item => {
     if (reg.test(item)) {
       filePath.push(item)
-      console.log('xx', item.replace(reg, '$2'))
+      console.log(pages, item)
       filenameAry.push(item.replace(reg, '$2'))
     }
   })
@@ -73,6 +73,7 @@ exports.getHWP = (filenameAry, dependOns, srcPath) => {
         chunks: [name, ...dependOns[name] || ''],
         // excludeChunks: ['common1'], // 这里有个没有解决的问题就是 splitChunk 分离出来的包会加到所有入口中去，即使该入口中没有用到这个模块
         inject: true,
+        favicon: resolve(srcPath, './assets/image/favicon.ico'),
         minify: {
           html5: true,
           collapseWhitespace: true,
