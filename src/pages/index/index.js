@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { renderRoutes } from 'react-router-config'
 import { HashRouter } from 'react-router-dom'
@@ -13,7 +13,9 @@ const App = memo(function () {
   return (
     <HashRouter>
       <AppHeader></AppHeader>
-      {renderRoutes(routes)}
+      <Suspense fallback={<div>page loading</div>}>
+        {renderRoutes(routes)}
+      </Suspense>
       <AppFooter></AppFooter>
     </HashRouter>
   )

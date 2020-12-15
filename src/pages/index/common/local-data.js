@@ -50,15 +50,27 @@ export const footerLinks = [
 
 export const footerImages = [
   {
+    title: '用户认证',
     link: "https://music.163.com/st/userbasic#/auth"
   },
   {
+    title: '独立音乐人',
     link: "https://music.163.com/recruit"
   },
   {
+    title: '赞赏',
     link: "https://music.163.com/web/reward"
   },
   {
+    title: '视频奖励',
+    link: "https://music.163.com/uservideo#/plan"
+  },
+  {
+    title: '自媒体',
+    link: "https://music.163.com/web/reward"
+  },
+  {
+    title: '音乐专栏',
     link: "https://music.163.com/uservideo#/plan"
   }
 ]

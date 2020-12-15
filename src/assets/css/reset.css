@@ -69,7 +69,10 @@ body, textarea, select, input, button {
 .sprite_02 {
   background: url(../image/sprite_02.png) no-repeat 0 9999px;
 }
+.sprite_footer_02{
+  background: url(../image/sprite_footer_02.png) no-repeat 0 9999px;
 
+}
 .sprite_covor {
   background: url(../image/sprite_cover.png) no-repeat 0 9999px;
 }

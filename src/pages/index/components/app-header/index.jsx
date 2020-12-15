@@ -9,14 +9,14 @@ export default memo(function AppHeader() {
     return headerLinks.map((item, index) => {
       if (/http/.test(item.link)) {
         return (
-          <li className='nav-item'>
+          <li className='nav-item' key={item.title}>
             <a href={item.link} target='_blank' className='nav-link'>{item.title}</a>
           </li>
         )
       }
       return (
-        <li className='nav-item'>
-          <NavLink exact className='nav-link' to={item.link}>{item.title}</NavLink>
+        <li className='nav-item' key={item.title}>
+          <NavLink className='nav-link' to={item.link}>{item.title}</NavLink>
         </li>
       )
     })

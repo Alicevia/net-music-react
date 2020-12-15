@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 
-export default memo(function AppFooter() {
+export default memo(function Recommend() {
   return (
     <div>
-      footer
+      Recommend
     </div>
   )
 })
