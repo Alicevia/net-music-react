@@ -21,6 +21,8 @@ const config = {
         'common': resolve(__dirname, '../src/pages/index/common'),
         'components': resolve(__dirname, '../src/pages/index/components'),
         'views': resolve(__dirname, '../src/pages/index/views'),
+        'store': resolve(__dirname, '../src/pages/index/store'),
+
       }
     },
   },
