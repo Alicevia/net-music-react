@@ -1,13 +1,14 @@
 import { handleActions } from 'redux-actions'
 import { TYPES } from './action'
-const defaultState = {
+import { Map } from 'immutable'
+
+
+const defaultState = Map({
   banners: []
-}
+})
 
 export default handleActions({
   [TYPES.UPDATE_BANNERS](state, action) {
-    console.log(state, action)
-    state.banners = action.payload
-    return { ...state }
+    return state.set('banners', action.payload)
   },
 }, defaultState)
