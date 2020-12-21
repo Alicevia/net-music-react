@@ -1,21 +1,21 @@
 import React, { memo, useEffect } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import recommendAction from 'store/recommend-module/action'
+import Banner from './components/banner'
+
 export default memo(function Recommend() {
 
   let { fetchUpdateBanners } = recommendAction.recommend
-  console.log('banners', recommendAction)
-
   const dispatch = useDispatch()
   const banners = useSelector(state => {
     return state.getIn(['recommend', 'banners'])
   }, shallowEqual)
   useEffect(() => {
-    dispatch(fetchUpdateBanners(['xx']))
+    dispatch(fetchUpdateBanners())
   }, [dispatch])
   return (
     <div>
-      Recommend
+      <Banner></Banner>
     </div>
   )
 })

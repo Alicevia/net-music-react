@@ -10,7 +10,7 @@ export const DiscoverNavWrapper = styled.nav`
     font-size: 12px;
     display: flex;
     height: 29px;
-    padding-left: 356px;
+    padding-left: 182px;
     align-items: center;
     .discover-nav-item{
       padding: 0 19px;
