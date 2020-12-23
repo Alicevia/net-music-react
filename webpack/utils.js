@@ -10,7 +10,6 @@ exports.generateFileName = (pages) => {
   glob.sync(pages).forEach(item => {
     if (reg.test(item)) {
       filePath.push(item)
-      console.log(pages, item)
       filenameAry.push(item.replace(reg, '$2'))
     }
   })

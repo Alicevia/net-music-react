@@ -1,14 +1,8 @@
-import React, { memo, useEffect, useRef, useState } from 'react'
+import React, { memo, useEffect, useCallback, useRef, useState } from 'react'
 import { BannerWrapper } from './style'
 import { Carousel } from 'antd';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import recommendAction from 'store/recommend-module/action'
-const contentStyle = {
-  height: '285px',
-  color: '#fff',
-  textAlign: 'center',
-  background: '#364d79',
-};
 
 export default memo(function Banner() {
   const bannerRef = useRef()
@@ -26,11 +20,10 @@ export default memo(function Banner() {
   // 记录当前的图片是哪一张
   const [currentIndex, setCurrentIndex] = useState(0)
   // 切换之前找到下一张图片
-  const beforeChange = (from, to) => {
-    console.log(from, to)
+  const beforeChange = useCallback((from, to) => {
     setCurrentIndex(to)
-  }
-  const blurBG = banners.length && (banners[currentIndex].imageUrl + "?imageView&blur=40x20")
+  }, [])
+  const blurBG = banners.length !== 0 && (banners[currentIndex].imageUrl + "?imageView&blur=40x20")
 
   const renderBanner = () => {
     return banners.map(item => {
