@@ -8,7 +8,6 @@ const HeaderRec = memo(function (props) {
   return (
     <HeaderRecWrapper>
       <div className='header-title'>
-
         {dot ? <span className='dot'></span> : null}
         <a className='title'>{title}</a>
       </div>
