@@ -12,7 +12,6 @@ export default memo(function Hot() {
     dispatch(fetchHotRec({ limit: 8 }))
   }, [dispatch])
   const hotRec = useSelector(state => state.getIn(['recommend', 'hotRec']), shallowEqual)
-  console.log(hotRec)
   const songListRender = () => {
     return hotRec.map(item => {
       return <li className='song-item' key={item.id}><SongsCover songInfo={item}></SongsCover></li>

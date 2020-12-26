@@ -1,20 +1,18 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import { SongWrapper } from './style'
+import { getCount, getSizeImage } from '@/utils/format-utils'
 const SongsCover = memo(function (props) {
-  let { songInfo } = props
-  const computedNum = (num) => {
-    num = parseInt(num)
-    return Math.floor(num / 10000) + '万'
-  }
+  let { songInfo, imageSize = 140 } = props
+
   return (
     <SongWrapper>
       <div className='song-img'>
-        <img className='image' src={songInfo.picUrl} alt="" />
+        <img className='image' src={getSizeImage(songInfo.picUrl, imageSize)} alt="" />
         <a className='image-cover' href=""></a>
         <div className='image-control'>
           <span className='icon'></span>
-          <span className='num'>{computedNum(songInfo.playCount)}</span>
+          <span className='num'>{getCount(songInfo.playCount)}</span>
           <a className='play' href=""></a>
         </div>
       </div>

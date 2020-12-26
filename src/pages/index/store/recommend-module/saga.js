@@ -1,5 +1,5 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
-import { reqTopBanners, reqHotRec } from '@/services/recommendApi'
+import { call, put, takeEvery } from 'redux-saga/effects'
+import { reqTopBanners, reqHotRec, reqNewAlbum } from '@/services/recommendApi'
 import { TYPES } from './action'
 
 
@@ -10,14 +10,20 @@ function* fetchBanner(action) {
 }
 
 function* fetchHotRec(action) {
-  console.log(action)
   const res = yield call(reqHotRec, action.payload)
-  console.log(res)
   yield put({ type: TYPES.HOT_REC, payload: res.result })
 }
 
 
+function* fetchNewAlbum(action) {
+  const res = yield call(reqNewAlbum, action.payload)
+  yield put({ type: TYPES.NEW_ALBUM, payload: res.albums })
+}
+
+
+
 export default function* watchRecommend() {
-  yield takeLatest(TYPES.FETCH_UPDATE_BANNERS, fetchBanner)
-  yield takeLatest(TYPES.FETCH_HOT_REC, fetchHotRec)
+  yield takeEvery(TYPES.FETCH_UPDATE_BANNERS, fetchBanner)
+  yield takeEvery(TYPES.FETCH_HOT_REC, fetchHotRec)
+  yield takeEvery(TYPES.FETCH_NEW_ALBUM, fetchNewAlbum)
 }

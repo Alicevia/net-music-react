@@ -5,7 +5,8 @@ import { Map } from 'immutable'
 
 const defaultState = Map({
   banners: [],
-  hotRec: []
+  hotRec: [],
+  album: []
 })
 
 export default handleActions({
@@ -13,7 +14,9 @@ export default handleActions({
     return state.set('banners', action.payload)
   },
   [TYPES.HOT_REC](state, action) {
-    console.log('hot', action)
     return state.set('hotRec', action.payload)
+  },
+  [TYPES.NEW_ALBUM](state, action) {
+    return state.set('album', action.payload)
   },
 }, defaultState)

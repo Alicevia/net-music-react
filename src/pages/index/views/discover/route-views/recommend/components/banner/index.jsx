@@ -5,8 +5,8 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import recommendAction from 'store/recommend-module/action'
 
 export default memo(function Banner() {
+  const [autoPlay, setAutoPlay] = useState(false)
   const bannerRef = useRef()
-
   let { fetchUpdateBanners } = recommendAction.recommend
   const dispatch = useDispatch()
   const banners = useSelector(state => {
@@ -16,14 +16,24 @@ export default memo(function Banner() {
     dispatch(fetchUpdateBanners())
   }, [dispatch])
 
+  useEffect(() => {//当banners内有值的时候轮播才开始
+    if (banners.length > 0) {
+      setAutoPlay(true)
+    }
+  }, [banners])
+
   // 跟换高斯模糊背景
   // 记录当前的图片是哪一张
   const [currentIndex, setCurrentIndex] = useState(0)
   // 切换之前找到下一张图片
   const beforeChange = useCallback((from, to) => {
-    setCurrentIndex(to)
+    setTimeout(() => {
+      setCurrentIndex(to)
+    });
   }, [])
-  const blurBG = banners.length !== 0 && (banners[currentIndex].imageUrl + "?imageView&blur=40x20")
+
+  const blurBG = banners[currentIndex] && (banners[currentIndex].imageUrl + "?imageView&blur=40x20")
+
 
   const renderBanner = () => {
     return banners.map(item => {
@@ -38,7 +48,7 @@ export default memo(function Banner() {
     <BannerWrapper blurBG={blurBG}>
       <div className='container wrap-v2'>
         <div className='banner-carousel'>
-          <Carousel beforeChange={beforeChange} autoplay ref={bannerRef} effect="fade" >
+          <Carousel beforeChange={beforeChange} autoplay={autoPlay} ref={bannerRef} effect="fade" >
             {renderBanner()}
           </Carousel>
         </div>

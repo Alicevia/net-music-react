@@ -13,3 +13,11 @@ export function reqHotRec(data) {
     method: 'get'
   })
 }
+
+export function reqNewAlbum(data) {
+  return request({
+    url: '/top/album',
+    params: data,
+    method: 'get'
+  })
+}

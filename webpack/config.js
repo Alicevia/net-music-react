@@ -22,6 +22,7 @@ const config = {
         'components': resolve(__dirname, '../src/pages/index/components'),
         'views': resolve(__dirname, '../src/pages/index/views'),
         'store': resolve(__dirname, '../src/pages/index/store'),
+        'assets': resolve(__dirname, '../src/assets'),
 
       }
     },
