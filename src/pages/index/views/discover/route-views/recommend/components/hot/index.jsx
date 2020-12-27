@@ -13,7 +13,7 @@ export default memo(function Hot() {
   }, [dispatch])
   const hotRec = useSelector(state => state.getIn(['recommend', 'hotRec']), shallowEqual)
   const songListRender = () => {
-    return hotRec.map(item => {
+    return hotRec && hotRec.map(item => {
       return <li className='song-item' key={item.id}><SongsCover songInfo={item}></SongsCover></li>
     })
   }

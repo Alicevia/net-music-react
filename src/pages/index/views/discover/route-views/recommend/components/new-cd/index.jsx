@@ -21,7 +21,7 @@ export default memo(function NewCD() {
         <div key={_}>
           <ul className='album-content' >
             {
-              album.slice(_ * 5, (_ + 1) * 5).map(item => {
+              album && album.slice(_ * 5, (_ + 1) * 5).map(item => {
                 return <li className='item' key={item.id}>
                   <AlbumCover info={item}></AlbumCover>
                 </li>

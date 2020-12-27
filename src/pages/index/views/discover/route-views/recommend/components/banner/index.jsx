@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useCallback, useRef, useState } from 'react'
+import React, { memo, useEffect, useCallback, useRef, useState, useMemo } from 'react'
 import { BannerWrapper } from './style'
 import { Carousel } from 'antd';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
@@ -34,9 +34,8 @@ export default memo(function Banner() {
 
   const blurBG = banners[currentIndex] && (banners[currentIndex].imageUrl + "?imageView&blur=40x20")
 
-
   const renderBanner = () => {
-    return banners.map(item => {
+    return banners && banners.map(item => {
       return (
         <div className='carousel-item' key={item.imageUrl}>
           <img className='carousel-img' src={item.imageUrl} alt="" />

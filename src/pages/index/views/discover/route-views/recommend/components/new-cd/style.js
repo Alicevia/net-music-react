@@ -11,6 +11,7 @@ export const NewCDWrapper = styled.div`
     border: 1px solid #d3d3d3;
     height: 186px;
     margin: 20px 0 37px;
+    box-shadow: 0px 0px 1px 1px white inset;
     .album-content{
       margin: 30px 40px;
       display: flex;

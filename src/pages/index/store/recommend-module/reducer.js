@@ -6,7 +6,11 @@ import { Map } from 'immutable'
 const defaultState = Map({
   banners: [],
   hotRec: [],
-  album: []
+  album: [],
+
+  upRanking: {},
+  newRanking: {},
+  originRanking: {},
 })
 
 export default handleActions({
@@ -18,5 +22,14 @@ export default handleActions({
   },
   [TYPES.NEW_ALBUM](state, action) {
     return state.set('album', action.payload)
+  },
+  [TYPES.UP_RANKING](state, action) {
+    return state.set('upRanking', action.payload)
+  },
+  [TYPES.NEW_RANKING](state, action) {
+    return state.set('newRanking', action.payload)
+  },
+  [TYPES.ORIGIN_RANKING](state, action) {
+    return state.set('originRanking', action.payload)
   },
 }, defaultState)

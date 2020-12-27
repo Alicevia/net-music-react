@@ -21,3 +21,9 @@ export function reqNewAlbum(data) {
     method: 'get'
   })
 }
+export function reqListRanking(data) {
+  return request({
+    url: "/top/list",
+    params: data
+  })
+}

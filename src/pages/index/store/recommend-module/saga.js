@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
-import { reqTopBanners, reqHotRec, reqNewAlbum } from '@/services/recommendApi'
+import { reqTopBanners, reqHotRec, reqNewAlbum, reqListRanking } from '@/services/recommendApi'
 import { TYPES } from './action'
 
 
@@ -20,10 +20,25 @@ function* fetchNewAlbum(action) {
   yield put({ type: TYPES.NEW_ALBUM, payload: res.albums })
 }
 
+function* fetchListRanking(action) {
+  let idx = action.payload.idx
+  const res = yield call(reqListRanking, action.payload)
+  let payload = res.playlist
+  if (idx === 0) {
+    yield put({ type: TYPES.UP_RANKING, payload })
+  } else if (idx === 2) {
+    yield put({ type: TYPES.NEW_RANKING, payload })
+  } else if (idx === 3) {
+    yield put({ type: TYPES.ORIGIN_RANKING, payload })
+
+  }
+}
+
 
 
 export default function* watchRecommend() {
   yield takeEvery(TYPES.FETCH_UPDATE_BANNERS, fetchBanner)
   yield takeEvery(TYPES.FETCH_HOT_REC, fetchHotRec)
   yield takeEvery(TYPES.FETCH_NEW_ALBUM, fetchNewAlbum)
+  yield takeEvery(TYPES.FETCH_LIST_RANKING, fetchListRanking)
 }

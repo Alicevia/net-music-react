@@ -8,6 +8,10 @@ export const TYPES = {
   FETCH_NEW_ALBUM: 'recommend/FETCH_NEW_ALBUM',
   NEW_ALBUM: 'recommend/NEW_ALBUM',
 
+  FETCH_LIST_RANKING: 'recommend/FETCH_LIST_RANKING',
+  UP_RANKING: 'recommend/UP_RANKING',
+  NEW_RANKING: 'recommend/NEW_RANKING',
+  ORIGIN_RANKING: 'recommend/ORIGIN_RANKING',
 }
 
 
@@ -22,6 +26,9 @@ export default createActions({
     return data
   },
   [TYPES.FETCH_NEW_ALBUM](data) {
+    return data
+  },
+  [TYPES.FETCH_LIST_RANKING](data) {
     return data
   },
 })
