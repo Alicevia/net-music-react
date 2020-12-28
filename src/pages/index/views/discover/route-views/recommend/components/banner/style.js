@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import download from '@/assets/image/download.png'
 import banner_sprite from '@/assets/image/banner_sprite.png'
-export const BannerWrapper = styled.section.attrs(
-
-
-)`
+export const BannerWrapper = styled.section.attrs()`
   width: 100%;
   height: 285px;
   background: url(${props => { return props.blurBG }})  center center/6000px;
@@ -20,7 +17,6 @@ export const BannerWrapper = styled.section.attrs(
         .carousel-img {
           width:100%;
           height: 285px;
-          
         }
       }
 

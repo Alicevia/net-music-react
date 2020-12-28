@@ -12,6 +12,12 @@ export const TYPES = {
   UP_RANKING: 'recommend/UP_RANKING',
   NEW_RANKING: 'recommend/NEW_RANKING',
   ORIGIN_RANKING: 'recommend/ORIGIN_RANKING',
+
+  HOT_SINGER: 'recommend/HOT_SINGER',
+  FETCH_HOT_SINGER: 'recommend/FETCH_HOT_SINGER',
+
+  HOT_ANCHOR: 'recommend/HOT_ANCHOR',
+  FETCH_HOT_ANCHOR: 'recommend/FETCH_HOT_ANCHOR'
 }
 
 
@@ -29,6 +35,12 @@ export default createActions({
     return data
   },
   [TYPES.FETCH_LIST_RANKING](data) {
+    return data
+  },
+  [TYPES.FETCH_HOT_SINGER](data) {
+    return data
+  },
+  [TYPES.FETCH_HOT_ANCHOR](data) {
     return data
   },
 })

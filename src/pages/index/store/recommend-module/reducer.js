@@ -11,6 +11,9 @@ const defaultState = Map({
   upRanking: {},
   newRanking: {},
   originRanking: {},
+
+  hotSinger: [],
+  hotAnchor: []
 })
 
 export default handleActions({
@@ -31,5 +34,11 @@ export default handleActions({
   },
   [TYPES.ORIGIN_RANKING](state, action) {
     return state.set('originRanking', action.payload)
+  },
+  [TYPES.HOT_SINGER](state, action) {
+    return state.set('hotSinger', action.payload)
+  },
+  [TYPES.HOT_ANCHOR](state, action) {
+    return state.set('hotAnchor', action.payload)
   },
 }, defaultState)

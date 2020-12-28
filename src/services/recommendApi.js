@@ -27,3 +27,18 @@ export function reqListRanking(data) {
     params: data
   })
 }
+
+export function reqHotSinger(data) {
+  return request({
+    url: "/top/artists",
+    params: data
+  })
+}
+
+export function reqHotAnchor(data) {
+  return request({
+    url: "/dj/toplist/popular",
+    params: data
+  })
+}
+
