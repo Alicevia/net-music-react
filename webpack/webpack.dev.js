@@ -57,6 +57,7 @@ module.exports = merge(baseConfig, {
       },
       {
         test: /\.scss$/,
+        exclude: /node_module/,
         use: [
           'style-loader',
           'css-loader',
@@ -66,6 +67,7 @@ module.exports = merge(baseConfig, {
       },
       {
         test: /\.less$/,
+        exclude: /node_module/,
         use: [
           'style-loader',
           'css-loader',
